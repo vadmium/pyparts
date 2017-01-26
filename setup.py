@@ -7,7 +7,7 @@ if sys.version_info.major != 3:
     raise Exception("Sorry this package only works with python3.")
 
 setup(name='pyparts',
-      version='0.5',
+      version='0.5',  # Synchronize with pyparts.parts.__version__
       description="Python electronic parts tool",
       long_description_markdown_filename='README.md',
       classifiers=[

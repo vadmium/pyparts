@@ -45,7 +45,6 @@ import requests
 import tempfile
 import webbrowser
 import subprocess
-import pkg_resources
 
 from enum import IntEnum
 from docopt import docopt
@@ -57,7 +56,7 @@ from pyoctopart.exceptions import OctopartException
 
 '''Module configuration'''
 
-__version__ = pkg_resources.require("pyparts")[0].version
+__version__ = "0.5"
 
 __author__  = "Bernard `Guyzmo` Pratz"
 __contributors = []

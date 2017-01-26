@@ -457,16 +457,17 @@ class CLI:
     help = __doc__
 
     @classmethod
-    def parse_args(self, doc):
-        args = docopt(doc,
+    def parse_args(self, doc, argv=None):
+        args = docopt(doc, argv,
                       version=CLI.version.format(version=__version__),
                       options_first=True)
 
         if args['<command>'] == 'help':
             if len(args['<args>']) > 0:
-                sys.exit(subprocess.call([sys.argv[0], args['<args>'][0], '--help']))
+                self.parse_args(doc, [args['<args>'][0], '--help'])
             else:
-                sys.exit(subprocess.call([sys.argv[0], '--help']))
+                self.parse_args(doc, ['--help'])
+            sys.exit(0)
 
         # get configuration data
         defaults = Config(args['--config']).get_defaults()
